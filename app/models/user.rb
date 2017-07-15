@@ -46,6 +46,7 @@ class User < ActiveRecord::Base    #ApplicationRecord
     (first_name_matches(param) + last_name_matches(param) + email_matches(param)).uniq
   end
 
+
   def self.first_name_matches(param)
     matches('first_name', param)
   end
