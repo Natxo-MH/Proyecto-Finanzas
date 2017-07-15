@@ -17,7 +17,7 @@ var init_friend_lookup;
     $('#friend-lookup-form').on('ajax:error', function(event, xhr, status, error){
       hide_spinner();
       $('#friend-lookup-results').replaceWith('');
-      $('#friend-lookup-errors').replaceWith('Person was not found.');
+      $('#friend-lookup-errors').replaceWith('La persona no ha sido encontrada.');
     });
 }
 

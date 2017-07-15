@@ -2,7 +2,7 @@
 
 <div class="panel panel-default devise-bs">
   <div class="panel-heading">
-    <h4><%= t('.sign_up', default: 'Sign up') %></h4>
+    <h4><%= t('.sign_up', default: 'Regístrate') %></h4>
   </div>
   <div class="panel-body">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form' }) do |f| %>
@@ -15,12 +15,12 @@
       <div class="form-group">
 
         <div class="col-md-6 no-padding">
-          <%= f.label :first_name %>
+          <%= f.label "Nombre" %>
           <%= f.text_field :first_name, class: "form-control" %>
         </div>
 
         <div class="col-md-6 no-padding left-padding">
-          <%= f.label :last_name %>
+          <%= f.label "Apellidos" %>
           <%= f.text_field :last_name, class: "form-control" %>
         </div>
 
@@ -36,7 +36,7 @@
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
       
-      <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
+      <%= f.submit t('.sign_up', default: 'Regístrate'), class: 'btn btn-primary' %>
     
     <% end %>
   </div>

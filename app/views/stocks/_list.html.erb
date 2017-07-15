@@ -2,12 +2,12 @@
   <thead>
     <tr>
     
-      <th>Name</th>
-      <th>Symbol</th>
-      <th>Current price</th>
+      <th>Nombre</th>
+      <th>Compañía</th>
+      <th>Precio actual del valor</th>
 
       <% if @user.id == current_user.id %>
-        <th>Actions</th>
+        <th>Acción</th>
       <% end %>
     
     </tr>
@@ -24,9 +24,9 @@
         <% if @user.id == current_user.id %>
 
         <td>
-          <%= link_to 'Delete', user_stock_path(user_stock), 
+          <%= link_to 'Borrar', user_stock_path(user_stock), 
                                 :method => :delete, 
-                                :data => { :confirm => "Are you sure?"},
+                                :data => { :confirm => "Estás seguro/a?"},
                                 :class => "btn btn-xs btn-danger" %>
 
         </td>

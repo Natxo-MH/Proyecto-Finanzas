@@ -7,14 +7,14 @@
     <thead>
       <tr>
         <th colspan="3" class="page-header">
-          <h2>My Friends</h2>
+          <h2>Mis Amigos</h2>
         </th>
       </tr>
 
       <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Actions</th>
+        <th>Nombre</th>
+        <th>Correo Electrónico</th>
+        <th>Acciones</th>
       </tr>
 
     </thead>
@@ -26,10 +26,10 @@
           <td><%= friend.email %></td>
    
           <td>
-            <%= link_to "View Profile", user_path(friend), class:"btn btn-primary btn-xs" %>
-            <%= link_to 'Remove Friend', friendship_path(friend), 
+            <%= link_to "Ver Perfil", user_path(friend), class:"btn btn-primary btn-xs" %>
+            <%= link_to 'Eliminar de Amigos', friendship_path(friend), 
                                   :method => :delete, 
-                                  :data => { :confirm => "Are you sure?"},
+                                  :data => { :confirm => "Estás seguro/a?"},
                                   :class => "btn btn-xs btn-danger" %>
 
           </td>
@@ -46,7 +46,7 @@
 
 
   <div class="row col-lg-12">
-    <p class="lead">You don't have any friends yet. Please add some !</p>
+    <p class="lead">Aún no tienes amigos/as. Por favor, añade algunos/as !</p>
   </div>
 
 <% end %>

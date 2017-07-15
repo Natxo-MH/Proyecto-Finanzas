@@ -1,11 +1,11 @@
-<h2>User details</h2>
+<h2>Detalles de Usuario</h2>
 
 <dl class="dl-horizontal">
 
-  <dt><strong>Full Name</strong></dt>
+  <dt><strong>Nombre completo</strong></dt>
   <dd><%= @user.full_name %></dd>
 
-  <dt><strong>Email</strong></dt>
+  <dt><strong>Correo Electrónico</strong></dt>
   <dd><%= @user.email %></dd>
 
 </dl>
@@ -13,7 +13,7 @@
 <% if @user.stocks.size > 0 %>
   <%= render 'stocks/list' %>
 <% else %>
-  <p class="lead">This user is not tracking any stocks</p>
+  <p class="lead">Este usuario no está participando en ninguna cotización de valores</p>
 <% end %>
 
-<%= link_to "Back", my_friends_path, class: 'btn btn-primary' %>
+<%= link_to "Volver", my_friends_path, class: 'btn btn-primary' %>

@@ -1,7 +1,7 @@
-<p><%= t('.greeting', recipient: @resource.email, default: "Hello #{@resource.email}!") %></p>
+<p><%= t('.greeting', recipient: @resource.email, default: "Hola #{@resource.email}!") %></p>
 
-<p><%= t('.message', default: 'Your account has been locked due to an excessive amount of unsuccessful sign in attempts.') %></p>
+<p><%= t('.message', default: 'Tu cuenta ha sido bloqueada debido a un exceso de intentos fallidos de inicio de sesión.') %></p>
 
-<p><%= t('.instruction', default: 'Click the link below to unlock your account:') %></p>
+<p><%= t('.instruction', default: 'Clica en el enlace de abajo para desbloquear tu cuenta:') %></p>
 
-<p><%= link_to t('.action', default: 'Unlock my account'), unlock_url(@resource, unlock_token: @resource.unlock_token, locale: I18n.locale) %></p>
+<p><%= link_to t('.action', default: 'Desbloquear mi cuenta'), unlock_url(@resource, unlock_token: @resource.unlock_token, locale: I18n.locale) %></p>

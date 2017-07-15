@@ -1,7 +1,7 @@
 <%= form_with(model: user_stock, local: true) do |form| %>
   <% if user_stock.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user_stock.errors.count, "error") %> prohibited this user_stock from being saved:</h2>
+      <h2><%= pluralize(user_stock.errors.count, "error") %> se ha prohibido que este bono de usuario sea guardado:</h2>
 
       <ul>
       <% user_stock.errors.full_messages.each do |message| %>

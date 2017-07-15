@@ -31,11 +31,11 @@ class UsersController < ApplicationController
 
     if current_user.save
 
-      redirect_to my_friends_path, notice: "Friend was successfully added"
+      redirect_to my_friends_path, notice: "El amigo se ha añadido con éxito"
 
     else
 
-      redirect_to my_friends_path, flash[:error] = "There was an error with adding user as friend"
+      redirect_to my_friends_path, flash[:error] = "Ha habido un error añadiendo al usuario como amigo"
 
     end
   end

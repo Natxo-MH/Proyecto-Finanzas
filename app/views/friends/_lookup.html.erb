@@ -1,5 +1,5 @@
 <div id="friend-lookup">
-  <h3>Search for Friends</h3>
+  <h3>Buscar Amigos</h3>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -9,14 +9,14 @@
 
         <div class="col-md-10">
 
-          <%= text_field_tag :search_param, params[:search_param], placeholder: 'First Name, Last Name or Email', autofocus: true, class: 'form-control search-box input-lg' %>
+          <%= text_field_tag :search_param, params[:search_param], placeholder: 'Nombre, Apellido o Cuenta de correo', autofocus: true, class: 'form-control search-box input-lg' %>
 
         </div>
 
         <div class="col-md-2">
 
           <%= button_tag(type: :submit, class: 'btn btn-lg btn-success') do %>
-            <i class='fa fa-search'></i> Look up a friend
+            <i class='fa fa-search'></i> Buscar a un amigo
           <% end %>
 
         </div>
@@ -27,59 +27,63 @@
 
     <%= render 'common/spinner' %>
 
-      <% if @users %>
+      <div class="container">
 
-        <% if @users.size > 0 %>
+        <% if @users %>
 
-          <h3>Search Results</h3>
+          <% if @users.size > 0 %>
 
-          <div id="friend-lookup-results" class="well results-block col-md-10">
+            <br><br><br><h3>Resultados de la búsqueda</h3>
 
-            <table class="search-results-table col-md-12">
+            <div id="friend-lookup-results" class="well results-block col-md-12">
 
-              <tbody>
+              <table class="search-results-table col-md-12">
 
-                <% @users.each do |user| %>
+                <tbody>
 
-                  <tr>
+                  <% @users.each do |user| %>
 
-                    <td><strong>Name:</strong> <%= user.full_name %></td>
-                    <td><strong>Email:</strong> <%= user.email %></td>
-                    <td><strong>Profile:</strong> <%= link_to "View Profile", user_path(user), 
-                    class: "btn btn-xs btn-success" %>
+                    <tr>
 
-                      <% if current_user.not_friends_with?(user.id) %>
+                      <td><strong>Nombre:</strong> <%= user.full_name %></td>
+                      <td><strong>Correo Electrónico:</strong> <%= user.email %></td>
+                      <td><strong>Perfil:</strong> <%= link_to "Ver Perfil", user_path(user), 
+                      class: "btn btn-xs btn-success" %>
 
-                        <%= link_to "Add as my friend", add_friend_path(user: current_user, friend: user), class: 'btn btn-xs btn-success', method: :post %>
+                        <% if current_user.not_friends_with?(user.id) %>
 
-                      <% else %>
+                          <%= link_to "Añadir", add_friend_path(user: current_user, friend: user), class: 'btn btn-xs btn-success', method: :post %>
 
-                        <span class='label label-primary'>
+                        <% else %>
 
-                          You are friends
+                          <span class='label label-primary'>
 
-                        </span>
-                      <% end %>
-                    </td>
-                  </tr>
+                            Ya sois amigos
 
-                <% end %>
+                          </span>
+                        <% end %>
+                      </td>
+                    </tr>
 
-               </tbody>
-            </table>
-          </div>
+                  <% end %>
 
-        <% else %>
+                 </tbody>
+              </table>
+            </div>
 
-          <p class="lead col-md-12">
+          <% else %>
 
-            No people match this search criteria
+            <p class="lead col-md-12">
 
-          </p>
+              No se han encontrado personas con los criterios facilitados
+
+            </p>
+
+          <% end %>
 
         <% end %>
 
-      <% end %>
+      </div>
 
       <div id="friend-lookup-errors"></div>
 

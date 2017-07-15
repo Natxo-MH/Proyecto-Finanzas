@@ -42,7 +42,7 @@ class UserStocksController < ApplicationController
           @user_stock = UserStock.new(user: current_user, stock: stock)
         else
           @user_stock = nil
-          flash[:error] = "Stock is not available"
+          flash[:error] = "Esta cotización no está disponible"
         end
 
       end
@@ -53,7 +53,7 @@ class UserStocksController < ApplicationController
     respond_to do |format|
       if @user_stock.save
         format.html { redirect_to my_portfolio_path, 
-          notice: "Stock #{@user_stock.stock.ticker} was succesfully added"}
+          notice: "La Cotización en #{@user_stock.stock.ticker} se ha añadido satisfactoriamente"}
         format.json { render :show, status: :created, location: @user_stock }        
       else
         format.html { render :new }
@@ -67,7 +67,7 @@ class UserStocksController < ApplicationController
   def update
     respond_to do |format|
       if @user_stock.update(user_stock_params)
-        format.html { redirect_to @user_stock, notice: 'User stock was successfully updated.' }
+        format.html { redirect_to @user_stock, notice: 'La cotización del usuario se ha actualizado con éxito.' }
         format.json { render :show, status: :ok, location: @user_stock }
       else
         format.html { render :edit }
@@ -81,7 +81,7 @@ class UserStocksController < ApplicationController
   def destroy
     @user_stock.destroy
     respond_to do |format|
-      format.html { redirect_to my_portfolio_path, notice: 'Stock was successfully remove from portfolio.' }
+      format.html { redirect_to my_portfolio_path, notice: 'La cotización se ha eliminado con éxito del portafolio.' }
       format.json { head :no_content }
     end
   end
