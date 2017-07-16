@@ -17,6 +17,7 @@
     </div>
   <% end %>
   <%= render 'common/spinner' %>
+ 
   <% if @stock %>
     <div id="stock-lookup-results" class="well results-block">
       <strong>Símbolo:</strong> <%= @stock.ticker %>
@@ -25,7 +26,8 @@
 
       <% if current_user.can_add_stock?(@stock.ticker) %>
 
-        <%= link_to "Añádelo a mi Portafolio", user_stocks_path(user: current_user, stock_ticker: @stock.ticker, stock_id: @stock.id ? @stock.id : ''), class: 'btn btn-xs btn-success', method: :post %>
+        <%= link_to "Añadir a mi Portafolio", user_stocks_path(user: current_user, stock_ticker: @stock.ticker, 
+        stock_id: @stock.id ? @stock.id : ''), class: 'btn btn-xs btn-success', method: :post %>
 
       <% else %>
 
